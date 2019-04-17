@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLDBContextStoreContainer" CdmEntityContainer="QLDBtestEntities1">
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="QLDBContext.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="myFavourite" ColumnName="myFavourite" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="idNetWork" ColumnName="idNetWork" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Networks">
+      <EntityTypeMapping TypeName="QLDBContext.Network">
+        <MappingFragment StoreEntitySet="Network">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nameNetwork" ColumnName="nameNetwork" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

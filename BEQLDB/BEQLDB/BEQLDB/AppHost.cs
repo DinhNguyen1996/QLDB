@@ -24,13 +24,13 @@ namespace BEQLDB
         {
             var builder = new ContainerBuilder();
             // Register Database context
-            builder.Register(c =>
-            {
-                var contextOption = new DbContextOptionsBuilder<QLDBContext>()
-               .UseSqlServer(AppSettings.GetString("ConnectionString"), b => b.MigrationsAssembly("ServiceStack.API"))
-               .Options;
-                return new QLDBContext(contextOption);
-            }).InstancePerRequest();
+            //builder.Register(c =>
+            //{
+            //    var contextOption = new DbContextOptionsBuilder<QLDBtestEntities1>()
+            //   .UseSqlServer(AppSettings.GetString("ConnectionString"), b => b.MigrationsAssembly("ServiceStack.API"))
+            //   .Options;
+            //    return new QLDBtestEntities1(contextOption);
+            //}).InstancePerRequest();
             //Config examples
             //this.Plugins.Add(new PostmanFeature());
             //this.Plugins.Add(new CorsFeature());
