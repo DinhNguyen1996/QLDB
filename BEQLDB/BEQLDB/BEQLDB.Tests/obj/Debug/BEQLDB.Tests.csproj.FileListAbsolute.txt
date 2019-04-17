@@ -1,0 +1,2 @@
+C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB.Tests\obj\Debug\BEQLDB.Tests.csprojAssemblyReference.cache
+C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB.Tests\obj\Debug\BEQLDB.Tests.csproj.CoreCompileInputs.cache
