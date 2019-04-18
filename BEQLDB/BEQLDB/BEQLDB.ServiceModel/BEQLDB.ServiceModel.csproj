@@ -121,58 +121,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseResponse.cs" />
-    <Compile Include="Contact.cs">
-      <DependentUpon>DatabaseFirstModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DatabaseFirstModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseFirstModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DatabaseFirstModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseFirstModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DatabaseFirstModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseFirstModel.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Contact.cs" />
     <Compile Include="Hello.cs" />
-    <Compile Include="Network.cs">
-      <DependentUpon>DatabaseFirstModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Network.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLDBContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Types\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="DatabaseFirstModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DatabaseFirstModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DatabaseFirstModel.edmx.diagram">
-      <DependentUpon>DatabaseFirstModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DatabaseFirstModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DatabaseFirstModel.edmx</DependentUpon>
-      <LastGenOutput>DatabaseFirstModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DatabaseFirstModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DatabaseFirstModel.edmx</DependentUpon>
-      <LastGenOutput>DatabaseFirstModel.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
