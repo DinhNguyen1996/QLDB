@@ -90,6 +90,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContactService.cs" />
+    <Compile Include="DTO\ContactDTO.cs" />
+    <Compile Include="DTO\NetworkDTO.cs" />
     <Compile Include="MyServices.cs" />
     <Compile Include="NetworkService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,7 +108,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DTO\" />
+    <Folder Include="IServices\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

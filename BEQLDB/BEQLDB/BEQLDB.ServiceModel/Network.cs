@@ -13,17 +13,20 @@ namespace BEQLDB.ServiceModel
     {
         public int id { get; set; }
         public string nameNetwork { get; set; }
+        public virtual ICollection<Contact> Contacts { get; set; }
     }
 
     [Route("/networks", "GET")]
     public class GetNetWork : IReturn<BaseResponse>
     {
+        public int id { get; set; }
         public string nameNetwork { get; set; }
     }
 
     [Route("/networks", "POST")]
     public class CreateNetwork : IReturn<BaseResponse>
     {
+        public int id { get; set; }
         public string nameNetwork { get; set; }
     }
 

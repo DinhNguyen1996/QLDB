@@ -1,4 +1,5 @@
-﻿using BEQLDB.ServiceModel;
+﻿using BEQLDB.ServiceInterface.DTO;
+using BEQLDB.ServiceModel;
 using ServiceStack;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,11 @@ namespace BEQLDB.ServiceInterface
         {
             var response = new BaseResponse();
             var crtNetwork = new ServiceModel.Network();
+            crtNetwork.id = request.id;
             crtNetwork.nameNetwork = request.nameNetwork;
+
+            //NetworkDTO networkDTO = new NetworkDTO();
+            //networkDTO.nameNetwork = request.nameNetwork;
 
             _context.Networks.Add(crtNetwork);
             _context.SaveChanges();

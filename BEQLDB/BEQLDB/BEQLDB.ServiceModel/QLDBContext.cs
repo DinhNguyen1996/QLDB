@@ -16,9 +16,12 @@ namespace BEQLDB.ServiceModel
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Network>()
+                .HasMany(c => c.Contacts)
+                .WithOne(n => n.Network);
         }
 
         public DbSet<Network> Networks { get; set; }
-        public DbSet<Contact> Contact { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
     }
 }
