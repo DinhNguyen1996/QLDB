@@ -91,6 +91,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContactService.cs" />
+    <Compile Include="DAL\Interface\IGenericRepository.cs" />
+    <Compile Include="DAL\Repository\GenericRepository.cs" />
+    <Compile Include="DAL\UnitOfWork\UnitOfWork.cs" />
     <Compile Include="DTO\ContactDTO.cs" />
     <Compile Include="DTO\NetworkDTO.cs" />
     <Compile Include="MyServices.cs" />
@@ -107,9 +110,7 @@
       <Name>BEQLDB.ServiceModel</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="IServices\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

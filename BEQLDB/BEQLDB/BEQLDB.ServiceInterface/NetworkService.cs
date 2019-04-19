@@ -21,7 +21,7 @@ namespace BEQLDB.ServiceInterface
         {
             var network = _context.Networks;
             var response = new BaseResponse();
-
+            
             response.Success = true;
             response.StatusCode = (int)HttpStatusCode.OK;
             response.Message = "Get networks successfully";
@@ -34,10 +34,6 @@ namespace BEQLDB.ServiceInterface
             var crtNetwork = new ServiceModel.Network();
             crtNetwork.id = request.id;
             crtNetwork.nameNetwork = request.nameNetwork;
-
-            //NetworkDTO networkDTO = new NetworkDTO();
-            //networkDTO.nameNetwork = request.nameNetwork;
-
             _context.Networks.Add(crtNetwork);
             _context.SaveChanges();
 
@@ -67,7 +63,7 @@ namespace BEQLDB.ServiceInterface
         {
             var response = new BaseResponse();
             var networkUp = _context.Networks.SingleOrDefault(x => x.id == request.id);
-            if(networkUp == null)
+            if (networkUp == null)
             {
                 response.Message = "ID network is not correct";
                 return response;

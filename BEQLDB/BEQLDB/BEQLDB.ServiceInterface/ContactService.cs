@@ -104,7 +104,7 @@ namespace BEQLDB.ServiceInterface
 
             response.Success = true;
             response.StatusCode = (int)HttpStatusCode.OK;
-            response.Message = "Updated contact successfully";
+            response.Message = "Deleted contact successfully";
             return response;
         }
     }
