@@ -5,6 +5,9 @@ using Autofac;
 using BEQLDB.ServiceModel;
 using Microsoft.EntityFrameworkCore;
 using ServiceStack.Configuration;
+using BEQLDB.ServiceInterface.DAL.Repository;
+using BEQLDB.ServiceInterface.DAL.UnitOfWork;
+using BEQLDB.ServiceInterface.DAL.Interface;
 
 namespace BEQLDB
 {
@@ -33,12 +36,28 @@ namespace BEQLDB
                 return new QLDBContext(contextOption);
             }).InstancePerRequest();
 
+            //// Register repository
+            //builder.RegisterGeneric(typeof(GenericRepository<>))
+            //    .As(typeof(IGenericRepository<>))
+            //    .InstancePerRequest();
+
+            //
+            container.RegisterAutoWiredAs<NetworkRepository, INetworkRepository>().ReusedWithin(ReuseScope.Request);
+
+            // register UnitofWork
+            builder.RegisterGeneric(typeof(UnitOfWork<>))
+                .As(typeof(IUnitOfWork<>))
+                .InstancePerRequest();
+
             //Config examples
             //this.Plugins.Add(new PostmanFeature());
             //this.Plugins.Add(new CorsFeature());
 
             IContainerAdapter adapter = new AutofacIocAdapter(builder.Build(), container);
             container.Adapter = adapter;
+
+
+
         }
     }
 }

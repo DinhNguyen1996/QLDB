@@ -26,7 +26,7 @@ namespace BEQLDB.ServiceInterface.DAL.UnitOfWork
         {
             dbContext.Dispose();
         }
-
+        
         private bool disposed = false;
         public void Dispose(bool disposing)
         {

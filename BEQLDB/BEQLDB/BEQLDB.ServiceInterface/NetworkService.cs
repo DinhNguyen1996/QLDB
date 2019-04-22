@@ -1,4 +1,4 @@
-﻿using BEQLDB.ServiceInterface.DTO;
+﻿using BEQLDB.ServiceInterface.DAL.Interface;
 using BEQLDB.ServiceModel;
 using ServiceStack;
 using System;
@@ -13,10 +13,12 @@ namespace BEQLDB.ServiceInterface
     class NetworkService : Service
     {
         private QLDBContext _context { get; set; }
+        private INetworkRepository _iNetworkRepository;
 
-        public NetworkService(QLDBContext context)
+        public NetworkService(QLDBContext context, INetworkRepository iNetworkRepository)
         {
             _context = context;
+            _iNetworkRepository = iNetworkRepository;
         }
         public object GET(GetNetWork request)
         {
@@ -33,8 +35,9 @@ namespace BEQLDB.ServiceInterface
             var crtNetwork = new ServiceModel.Network();
             crtNetwork.id = request.id;
             crtNetwork.nameNetwork = request.nameNetwork;
-            _context.Networks.Add(crtNetwork);
-            _context.SaveChanges();
+            _iNetworkRepository.Create(crtNetwork);
+            //_context.Networks.Add(crtNetwork);
+            //_context.SaveChanges();
 
             response.Message = "Created network successfully";
             return response;
