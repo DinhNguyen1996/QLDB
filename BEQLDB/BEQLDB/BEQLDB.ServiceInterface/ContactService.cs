@@ -22,8 +22,6 @@ namespace BEQLDB.ServiceInterface
             var response = new BaseResponse();
             var contact = _context.Contacts;
 
-            response.Success = true;
-            response.StatusCode = (int)HttpStatusCode.OK;
             response.Message = "Get contact successfully";
             response.Results = contact;
             return response;
@@ -39,8 +37,6 @@ namespace BEQLDB.ServiceInterface
                 return response;
             }
 
-            response.Success = true;
-            response.StatusCode = (int)HttpStatusCode.OK;
             response.Message = $"Get contact by ID:{request.id} successfully";
             response.Results = contactByID;
             return response;
@@ -60,8 +56,6 @@ namespace BEQLDB.ServiceInterface
             _context.Contacts.Add(crtContact);
             _context.SaveChanges();
 
-            response.Success = true;
-            response.StatusCode = (int)HttpStatusCode.OK;
             response.Message = "Created contact successfully";
             return response;
         }
@@ -84,8 +78,6 @@ namespace BEQLDB.ServiceInterface
             _context.Contacts.Update(contactUp);
             _context.SaveChanges();
 
-            response.Success = true;
-            response.StatusCode = (int)HttpStatusCode.OK;
             response.Message = "Updated contact successfully";
             return response;
         }
@@ -102,8 +94,6 @@ namespace BEQLDB.ServiceInterface
             _context.Contacts.Remove(contactDel);
             _context.SaveChanges();
 
-            response.Success = true;
-            response.StatusCode = (int)HttpStatusCode.OK;
             response.Message = "Deleted contact successfully";
             return response;
         }

@@ -13,6 +13,7 @@ namespace BEQLDB.ServiceInterface
     class NetworkService : Service
     {
         private QLDBContext _context { get; set; }
+
         public NetworkService(QLDBContext context)
         {
             _context = context;
@@ -22,8 +23,6 @@ namespace BEQLDB.ServiceInterface
             var network = _context.Networks;
             var response = new BaseResponse();
             
-            response.Success = true;
-            response.StatusCode = (int)HttpStatusCode.OK;
             response.Message = "Get networks successfully";
             response.Results = network;
             return response;
@@ -37,8 +36,6 @@ namespace BEQLDB.ServiceInterface
             _context.Networks.Add(crtNetwork);
             _context.SaveChanges();
 
-            response.Success = true;
-            response.StatusCode = (int)HttpStatusCode.OK;
             response.Message = "Created network successfully";
             return response;
         }
@@ -54,8 +51,6 @@ namespace BEQLDB.ServiceInterface
             _context.Networks.Remove(networkDel);
             _context.SaveChanges();
 
-            response.Success = true;
-            response.StatusCode = (int)HttpStatusCode.OK;
             response.Message = "Deleted network successfully";
             return response;
         }
@@ -72,8 +67,6 @@ namespace BEQLDB.ServiceInterface
             _context.Networks.Update(networkUp);
             _context.SaveChanges();
 
-            response.Success = true;
-            response.StatusCode = (int)HttpStatusCode.OK;
             response.Message = "Updated network successfully";
             return response;
         }
