@@ -90,6 +90,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseService.cs" />
     <Compile Include="ContactService.cs" />
     <Compile Include="DAL\Interface\IContactRepository.cs" />
     <Compile Include="DAL\Interface\IGenericRepository.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="DAL\Repository\NetworkRepository.cs" />
     <Compile Include="DAL\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="DAL\UnitOfWork\UnitOfWork.cs" />
+    <Compile Include="IServices\IBaseService.cs" />
     <Compile Include="MyServices.cs" />
     <Compile Include="NetworkService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
