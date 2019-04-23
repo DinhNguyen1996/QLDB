@@ -1,0 +1,2 @@
+C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\Service\obj\Debug\BEQLDBService.csprojAssemblyReference.cache
+C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\Service\obj\Debug\BEQLDBService.csproj.CoreCompileInputs.cache

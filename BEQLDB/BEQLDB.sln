@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BEQLDB.ServiceModel", "BEQL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BEQLDB.ServiceInterface", "BEQLDB\BEQLDB.ServiceInterface\BEQLDB.ServiceInterface.csproj", "{801A0F89-D5F6-49A6-BCEA-6624388C98A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "BEQLDB\Service\Service.csproj", "{E26214E5-CEC0-4CFB-B807-313BFE12E41C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "BEQLDB\DAL\DAL.csproj", "{5C771542-AE29-4C20-B05D-7C26979554C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{801A0F89-D5F6-49A6-BCEA-6624388C98A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{801A0F89-D5F6-49A6-BCEA-6624388C98A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{801A0F89-D5F6-49A6-BCEA-6624388C98A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E26214E5-CEC0-4CFB-B807-313BFE12E41C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E26214E5-CEC0-4CFB-B807-313BFE12E41C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E26214E5-CEC0-4CFB-B807-313BFE12E41C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E26214E5-CEC0-4CFB-B807-313BFE12E41C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C771542-AE29-4C20-B05D-7C26979554C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C771542-AE29-4C20-B05D-7C26979554C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C771542-AE29-4C20-B05D-7C26979554C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C771542-AE29-4C20-B05D-7C26979554C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

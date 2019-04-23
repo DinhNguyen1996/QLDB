@@ -35,6 +35,11 @@ namespace BEQLDB.ServiceModel
     {
         public int id { get; set; }
         public string nameNetwork { get; set; }
+
+        public void ToEntity()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     [Route("/networks/{id}", "DELETE")]

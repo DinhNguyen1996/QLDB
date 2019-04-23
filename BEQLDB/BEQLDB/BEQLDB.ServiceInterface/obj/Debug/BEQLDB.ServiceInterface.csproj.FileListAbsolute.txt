@@ -36,3 +36,9 @@ C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB.ServiceInter
 C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB.ServiceInterface\obj\Debug\BEQLDB.ServiceInterface.dll
 C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB.ServiceInterface\obj\Debug\BEQLDB.ServiceInterface.pdb
 C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB.ServiceInterface\bin\Debug\System.Collections.Immutable.dll
+C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB.ServiceInterface\bin\Debug\Service.dll
+C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB.ServiceInterface\bin\Debug\DAL.dll
+C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB.ServiceInterface\bin\Debug\Service.pdb
+C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB.ServiceInterface\bin\Debug\Service.dll.config
+C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB.ServiceInterface\bin\Debug\DAL.pdb
+C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB.ServiceInterface\bin\Debug\DAL.dll.config

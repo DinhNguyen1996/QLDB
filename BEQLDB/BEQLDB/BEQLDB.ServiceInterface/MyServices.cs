@@ -3,7 +3,7 @@ using ServiceStack;
 
 namespace BEQLDB.ServiceInterface
 {
-    public class MyServices : Service
+    public class MyServices : ServiceStack.Service
     {
         public object Any(Hello request)
         {

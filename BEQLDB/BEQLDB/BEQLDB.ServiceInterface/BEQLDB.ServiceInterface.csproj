@@ -90,19 +90,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseService.cs" />
     <Compile Include="ContactService.cs" />
-    <Compile Include="DAL\Interface\IContactRepository.cs" />
-    <Compile Include="DAL\Interface\IGenericRepository.cs" />
-    <Compile Include="DAL\Interface\INetworkRepository.cs" />
-    <Compile Include="DAL\Repository\ContactRepository.cs" />
-    <Compile Include="DAL\Repository\GenericRepository.cs" />
-    <Compile Include="DAL\Repository\NetworkRepository.cs" />
-    <Compile Include="DAL\UnitOfWork\IUnitOfWork.cs" />
-    <Compile Include="DAL\UnitOfWork\UnitOfWork.cs" />
-    <Compile Include="IServices\IBaseService.cs" />
     <Compile Include="MyServices.cs" />
-    <Compile Include="NetworkService.cs" />
+    <Compile Include="APINetworkService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -114,8 +104,18 @@
       <Project>{53e82ac1-dd1d-4c66-b55f-f9f4acfb2f40}</Project>
       <Name>BEQLDB.ServiceModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{5C771542-AE29-4C20-B05D-7C26979554C7}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{E26214E5-CEC0-4CFB-B807-313BFE12E41C}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

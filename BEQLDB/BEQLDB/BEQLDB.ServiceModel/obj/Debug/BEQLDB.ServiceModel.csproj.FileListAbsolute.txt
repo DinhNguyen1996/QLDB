@@ -150,3 +150,4 @@ C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB.ServiceModel
 C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB.ServiceModel\obj\Debug\BEQLDB.ServiceModel.csproj.CopyComplete
 C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB.ServiceModel\obj\Debug\BEQLDB.ServiceModel.dll
 C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB.ServiceModel\obj\Debug\BEQLDB.ServiceModel.pdb
+C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB.ServiceModel\obj\Debug\BEQLDB.ServiceModel.csprojAssemblyReference.cache

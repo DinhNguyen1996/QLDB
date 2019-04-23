@@ -194,3 +194,9 @@ C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB\bin\System.W
 C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB\bin\System.Web.WebPages.xml
 C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB\bin\System.Web.WebPages.Deployment.xml
 C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB\bin\System.Web.WebPages.Razor.xml
+C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB\bin\Service.dll
+C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB\bin\DAL.dll
+C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB\bin\Service.pdb
+C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB\bin\Service.dll.config
+C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB\bin\DAL.pdb
+C:\Users\KiotViet Dev1\Desktop\New folder\QLDB\BEQLDB\BEQLDB\BEQLDB\bin\DAL.dll.config

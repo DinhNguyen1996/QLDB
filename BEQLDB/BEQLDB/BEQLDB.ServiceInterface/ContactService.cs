@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BEQLDB.ServiceInterface
 {
-    public class ContactService : Service
+    public class ContactService : ServiceStack.Service
     {
         private QLDBContext _context { get; set; }
         public ContactService(QLDBContext context)
