@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Imp\BaseService.cs" />
+    <Compile Include="Imp\ContactService.cs" />
     <Compile Include="Imp\NetworkService.cs" />
     <Compile Include="IServices\IBaseService.cs" />
     <Compile Include="IServices\IContactService.cs" />

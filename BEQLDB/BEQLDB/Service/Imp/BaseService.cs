@@ -26,9 +26,13 @@ namespace BEQLDB.ServiceInterface
         public virtual async Task<T> Delete(Expression<Func<T, bool>> keySelector)
         {
             var entity = await _unitOfWork.GenericRepository.GetById(keySelector: keySelector);
+            if (entity == null)
+                throw new Exception("Cannot find");
+
             _unitOfWork.GenericRepository.Delete(entity);
             await _unitOfWork.Save();
             return entity;
+
         }
         public virtual async Task<T> Delete(T entity)
         {
@@ -36,7 +40,7 @@ namespace BEQLDB.ServiceInterface
             await _unitOfWork.Save();
             return entity;
         }
-        
+
 
         public virtual async Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = "")
         {
@@ -47,6 +51,9 @@ namespace BEQLDB.ServiceInterface
         public virtual async Task<T> GetById(Expression<Func<T, bool>> keySelector, string includeProperties = "")
         {
             var entity = await _unitOfWork.GenericRepository.GetById(keySelector, includeProperties);
+            if (entity == null)
+                throw new Exception("Cannot find");
+
             return entity;
         }
 
@@ -60,7 +67,8 @@ namespace BEQLDB.ServiceInterface
             }
 
             var entities = await _unitOfWork.GenericRepository.GetAll().Select(
-                x => new {
+                x => new
+                {
                 }).ToListAsync();
 
             return entities;

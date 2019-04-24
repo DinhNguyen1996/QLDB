@@ -90,7 +90,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContactService.cs" />
+    <Compile Include="APIContactService.cs" />
     <Compile Include="MyServices.cs" />
     <Compile Include="APINetworkService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

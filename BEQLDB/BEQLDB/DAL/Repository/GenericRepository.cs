@@ -31,7 +31,7 @@ namespace BEQLDB.ServiceInterface.DAL.Repository
             {
                 query = query.Include(includeProperty);
             }
-            return await query.FirstAsync(keySelector);
+            return await query.FirstOrDefaultAsync(keySelector);
         }
 
         public void Delete(object id)

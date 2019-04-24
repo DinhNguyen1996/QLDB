@@ -22,8 +22,6 @@ namespace BEQLDB.ServiceInterface
             _netWorkService = netWorkService;
         }
 
-       
-
         public async Task<object> GET(GetNetWork request)
         {
             //var network = _context.Networks;
@@ -53,11 +51,6 @@ namespace BEQLDB.ServiceInterface
         {
             var response = new BaseResponse();
             Expression<Func<ServiceModel.Network, bool>> keySelector = x => x.id == request.id;
-            //if (keySelector == null)
-            //{
-            //    response.Message = "ID network is not correct";
-            //    return response;
-            //}
             var result = await _netWorkService.Delete(keySelector);
 
             response.Message = "Deleted network successfully";
@@ -66,17 +59,10 @@ namespace BEQLDB.ServiceInterface
         public async Task<object> PUT(UpdateNetwork request)
         {
             var response = new BaseResponse();
-            //var networkUp = _context.Networks.SingleOrDefault(x => x.id == request.id);
             Expression<Func<ServiceModel.Network, bool>> keySelector = x => x.id == request.id;
             var networkUp = await _netWorkService.GetById(keySelector: keySelector);
-           
-            //if (networkUp == null)
-            //{
-            //    response.Message = "ID network is not correct";
-            //    return response;
-            //}
             networkUp.nameNetwork = request.nameNetwork;
-         
+            await _netWorkService.Update(networkUp);
 
             response.Message = "Updated network successfully";
             return response;
