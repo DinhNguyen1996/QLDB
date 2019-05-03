@@ -27,6 +27,10 @@ namespace BEQLDB
         public override void Configure(Container container)
         {
             var builder = new ContainerBuilder();
+            this.Plugins.Add(new CorsFeature(allowedOrigins: "*",
+                                          allowedMethods: "GET, POST, PUT, DELETE, OPTIONS",
+                                          allowedHeaders: "Content-Type, Access-Control-Allow-Origin, Authorization, UseTokenCookie",
+                                          allowCredentials: true));
             // Register Database context
             builder.Register(c =>
             {

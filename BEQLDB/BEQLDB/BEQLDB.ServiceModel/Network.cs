@@ -42,7 +42,7 @@ namespace BEQLDB.ServiceModel
         }
     }
 
-    [Route("/networks/{id}", "DELETE")]
+    [Route("/networks/{id}", "GET, DELETE")]
     public class NetworkById : IReturn<BaseResponse>
     {
         public int id { get; set; }

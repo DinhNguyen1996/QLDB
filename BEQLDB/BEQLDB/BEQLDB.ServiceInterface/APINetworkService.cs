@@ -34,6 +34,17 @@ namespace BEQLDB.ServiceInterface
             return response;
         }
 
+        public async Task<object> GET(NetworkById request)
+        {
+            var response = new BaseResponse();
+            Expression<Func<ServiceModel.Network, bool>> keySelector = x => x.id == request.id;
+            var networkByID = await _netWorkService.GetById(keySelector: keySelector);
+
+            response.Message = $"Get network by ID:{request.id} successfully";
+            response.Results = networkByID;
+            return response;
+        }
+
         public async Task<object> POST(CreateNetwork request)
         {
             var response = new BaseResponse();
