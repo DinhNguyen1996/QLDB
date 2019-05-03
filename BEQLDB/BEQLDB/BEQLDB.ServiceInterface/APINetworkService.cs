@@ -24,7 +24,6 @@ namespace BEQLDB.ServiceInterface
 
         public async Task<object> GET(GetNetWork request)
         {
-            //var network = _context.Networks;
             Expression<Func<ServiceModel.Network, bool>> filter = x => (request.nameNetwork == null || x.nameNetwork.Contains(request.nameNetwork));
             var netWorkEntities = await _netWorkService.GetAll(filter: filter);
             var response = new BaseResponse();

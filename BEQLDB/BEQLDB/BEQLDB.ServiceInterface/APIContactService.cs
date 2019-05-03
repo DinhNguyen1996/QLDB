@@ -1,5 +1,6 @@
 ﻿using BEQLDB.ServiceInterface.IServices;
 using BEQLDB.ServiceModel;
+using BEQLDB.ServiceModel.DTOs;
 using ServiceStack;
 using System;
 using System.Collections.Generic;
@@ -26,10 +27,16 @@ namespace BEQLDB.ServiceInterface
             Expression<Func<ServiceModel.Contact, bool>> filter = x => (request.name == null || x.name.Contains(request.name))
                                                                     && (request.phoneNumber == null || x.phoneNumber.Contains(request.phoneNumber))
                                                                     && (request.notes == null || x.notes.Contains(request.notes));
-            var contactEntities = await _contactService.GetAll(filter: filter);
+            var contactEntities = await _contactService.GetAll(filter: filter, includeProperties:"Network");
+            var contactDtos = contactEntities.ToList().ConvertAll(x =>
+            {
+                var dto = x.ConvertTo<ContactDTO>();
+                dto.NetworkName = x.Network.nameNetwork;
+                return dto;
+            });
 
             response.Message = "Get contact successfully";
-            response.Results = contactEntities;
+            response.Results = contactDtos;
             return response;
         }
 
@@ -37,10 +44,12 @@ namespace BEQLDB.ServiceInterface
         {
             var response = new BaseResponse();
             Expression<Func<ServiceModel.Contact, bool>> keySelector = x => x.id == request.id;
-            var contactByID = await _contactService.GetById(keySelector: keySelector);
+            var contactByID = await _contactService.GetById(keySelector: keySelector, includeProperties:"Network");
+            var dto = contactByID.ConvertTo<ContactDTO>();
+            dto.NetworkName = contactByID.Network.nameNetwork;
 
             response.Message = $"Get contact by ID:{request.id} successfully";
-            response.Results = contactByID;
+            response.Results = dto;
             return response;
         }
 

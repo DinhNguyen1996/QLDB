@@ -122,6 +122,7 @@
   <ItemGroup>
     <Compile Include="BaseResponse.cs" />
     <Compile Include="Contact.cs" />
+    <Compile Include="DTOs\ContactDTO.cs" />
     <Compile Include="Hello.cs" />
     <Compile Include="Network.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
