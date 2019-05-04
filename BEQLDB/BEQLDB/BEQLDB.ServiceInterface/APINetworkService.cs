@@ -70,7 +70,7 @@ namespace BEQLDB.ServiceInterface
         {
             var response = new BaseResponse();
             Expression<Func<ServiceModel.Network, bool>> keySelector = x => x.id == request.id;
-            var networkUp = await _netWorkService.GetById(keySelector: keySelector);
+            var networkUp = await _netWorkService.GetById(keySelector);
             networkUp.nameNetwork = request.nameNetwork;
             await _netWorkService.Update(networkUp);
 
