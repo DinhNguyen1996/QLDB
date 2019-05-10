@@ -27,7 +27,7 @@ namespace BEQLDB.ServiceInterface
             Expression<Func<ServiceModel.Contact, bool>> filter = x => (request.name == null || x.name.Contains(request.name))
                                                                     && (request.phoneNumber == null || x.phoneNumber.Contains(request.phoneNumber))
                                                                     && (request.notes == null || x.notes.Contains(request.notes));
-            var contactEntities = await _contactService.GetAll(filter: filter, includeProperties:"Network");
+            var contactEntities = await _contactService.GetAll(filter, includeProperties:"Network");
             var contactDtos = contactEntities.ToList().ConvertAll(x =>
             {
                 var dto = x.ConvertTo<ContactDTO>();
@@ -44,7 +44,7 @@ namespace BEQLDB.ServiceInterface
         {
             var response = new BaseResponse();
             Expression<Func<ServiceModel.Contact, bool>> keySelector = x => x.id == request.id;
-            var contactByID = await _contactService.GetById(keySelector: keySelector, includeProperties:"Network");
+            var contactByID = await _contactService.GetById(keySelector, includeProperties:"Network");
             var dto = contactByID.ConvertTo<ContactDTO>();
             dto.NetworkName = contactByID.Network.nameNetwork;
 
@@ -76,7 +76,7 @@ namespace BEQLDB.ServiceInterface
         {
             var response = new BaseResponse();
             Expression<Func<ServiceModel.Contact, bool>> keySelector = x => x.id == request.id;
-            var contactUp = await _contactService.GetById(keySelector: keySelector);
+            var contactUp = await _contactService.GetById(keySelector);
            
             contactUp.name = request.name;
             contactUp.phoneNumber = request.phoneNumber;
@@ -94,7 +94,7 @@ namespace BEQLDB.ServiceInterface
         {
             var response = new BaseResponse();
             Expression<Func<ServiceModel.Contact, bool>> keySelector = x => x.id == request.id;
-            await _contactService.Delete(keySelector: keySelector);
+            await _contactService.Delete(keySelector);
 
             response.Message = "Deleted contact successfully";
             return response;

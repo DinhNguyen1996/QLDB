@@ -27,6 +27,7 @@ namespace BEQLDB
         public override void Configure(Container container)
         {
             var builder = new ContainerBuilder();
+            // crossdomain to client  
             this.Plugins.Add(new CorsFeature(allowedOrigins: "*",
                                           allowedMethods: "GET, POST, PUT, DELETE, OPTIONS",
                                           allowedHeaders: "Content-Type, Access-Control-Allow-Origin, Authorization, UseTokenCookie",
@@ -44,9 +45,6 @@ namespace BEQLDB
             builder.RegisterGeneric(typeof(GenericRepository<>))
                 .As(typeof(IGenericRepository<>))
                 .InstancePerRequest();
-
-            //
-            //container.RegisterAutoWiredAs<NetworkService, INetworkService>().ReusedWithin(ReuseScope.Request);
 
             // register UnitofWork
             builder.RegisterGeneric(typeof(UnitOfWork<>))

@@ -10,9 +10,11 @@ namespace BEQLDB.ServiceInterface.DAL.UnitOfWork
 {
     public interface IUnitOfWork<T> where T : class
     {
-        //IGenericRepository<Network> NetworkRepository { get; }
-        //IGenericRepository<Contact> ContactRepository { get; }
         IGenericRepository<T> GenericRepository { get; }
+
+        //void BeginTransaction();
+        //void Commit();
+        //void Rollback();
 
         Task Save();
         /// <summary>

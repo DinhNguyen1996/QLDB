@@ -13,10 +13,6 @@ namespace BEQLDB.ServiceInterface.DAL.UnitOfWork
         private QLDBContext dbContext;
         public IGenericRepository<T> GenericRepository { get; set; }
 
-        //public IGenericRepository<Network> NetworkRepository { get; set; }
-
-        //public IGenericRepository<Contact> ContactRepository { get; set; } 
-
         public UnitOfWork(QLDBContext dbContext, IGenericRepository<T> repostory)
         {
             this.dbContext = dbContext;
@@ -30,7 +26,7 @@ namespace BEQLDB.ServiceInterface.DAL.UnitOfWork
         private bool disposed = false;
         public void Dispose(bool disposing)
         {
-            if (this.disposed)
+            if (!this.disposed)
             {
                 if (disposing)
                 {
