@@ -9,14 +9,14 @@ namespace BEQLDB.ServiceInterface
 {
     public interface IBaseService<T> where T : class
     {
-        Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> filter = null,
-            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
-            string includeProperties = "");
-        Task<IEnumerable<object>> GetModelsWithKeys(params string[] keys);
-        Task<T> GetById(Expression<Func<T, bool>> keySelector, string includeProperties = "");
-        Task<T> Create(T entity);
-        Task<T> Update(T entity);
-        Task<T> Delete(Expression<Func<T, bool>> keySelector);
-        Task<T> Delete(T entity);
+        //Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> filter = null,
+        //    Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+        //    string includeProperties = "");
+        //Task<IEnumerable<object>> GetModelsWithKeys(params string[] keys);
+        //Task<T> GetById(Expression<Func<T, bool>> keySelector, string includeProperties = "");
+        //Task<T> Create(T entity);
+        //Task<T> Update(T entity);
+        //Task<T> Delete(Expression<Func<T, bool>> keySelector);
+        //Task<T> Delete(T entity);
     }
 }

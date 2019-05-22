@@ -24,14 +24,9 @@ namespace BEQLDB.ServiceInterface.DAL.Repository
             _dbSet.Add(entity);
         }
 
-        public async Task<T> GetById(Expression<Func<T, bool>> keySelector, string includeProperties = "")
+        public T GetById(object id)
         {
-            IQueryable<T> query = _dbSet;
-            foreach (var includeProperty in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-            {
-                query = query.Include(includeProperty);
-            }
-            return await query.FirstOrDefaultAsync(keySelector);
+            return _dbSet.Find(id);
         }
 
         public void Delete(object id)

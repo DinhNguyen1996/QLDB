@@ -8,5 +8,7 @@ using System.Threading.Tasks;
 
 namespace BEQLDB.ServiceInterface.DAL.Interface
 {
-    public interface INetworkRepository : IGenericRepository<Network> { }
+    public interface INetworkRepository : IGenericRepository<Network>
+    {
+    }
 }

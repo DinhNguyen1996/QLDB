@@ -22,29 +22,31 @@ namespace BEQLDB.ServiceInterface
             _netWorkService = netWorkService;
         }
 
-        public async Task<object> GET(GetNetWork request)
+        public object GET(GetNetWork request)
         {
-            Expression<Func<ServiceModel.Network, bool>> filter = x => (request.nameNetwork == null || x.nameNetwork.Contains(request.nameNetwork));
-            var netWorkEntities = await _netWorkService.GetAll(filter: filter);
+            //Expression<Func<ServiceModel.Network, bool>> filter = x => (request.nameNetwork == null || x.nameNetwork.Contains(request.nameNetwork));
+            //var netWorkEntities = await _netWorkService.GetAll(filter: filter);
             var response = new BaseResponse();
-            
+            var listNetwork = _netWorkService.GetAll();
+
             response.Message = "Get networks successfully";
-            response.Results = netWorkEntities;
+            response.Results = listNetwork;
             return response;
         }
 
-        public async Task<object> GET(NetworkById request)
+        public object GET(NetworkById request)
         {
+            //Expression<Func<ServiceModel.Network, bool>> keySelector = x => x.id == request.id;
+            //var networkByID = await _netWorkService.GetById(keySelector: keySelector);
+            var network = _netWorkService.GetById(request.id);
             var response = new BaseResponse();
-            Expression<Func<ServiceModel.Network, bool>> keySelector = x => x.id == request.id;
-            var networkByID = await _netWorkService.GetById(keySelector: keySelector);
 
             response.Message = $"Get network by ID:{request.id} successfully";
-            response.Results = networkByID;
+            response.Results = network;
             return response;
         }
 
-        public async Task<object> POST(CreateNetwork request)
+        public object POST(CreateNetwork request)
         {
             var response = new BaseResponse();
             var crtNetwork = new ServiceModel.Network()
@@ -52,29 +54,42 @@ namespace BEQLDB.ServiceInterface
                 id = request.id,
                 nameNetwork = request.nameNetwork
             };
-            await _netWorkService.Create(crtNetwork);
-           
+            var result = _netWorkService.Create(crtNetwork);
+
             response.Message = "Created network successfully";
+            response.Results = result;
             return response;
         }
-        public async Task<object> DELETE(NetworkById request)
+        public object DELETE(NetworkById request)
         {
             var response = new BaseResponse();
-            Expression<Func<ServiceModel.Network, bool>> keySelector = x => x.id == request.id;
-            var result = await _netWorkService.Delete(keySelector);
+            //Expression<Func<ServiceModel.Network, bool>> keySelector = x => x.id == request.id;
+            //var result = await _netWorkService.Delete(keySelector);
 
             response.Message = "Deleted network successfully";
+            response.Results = _netWorkService.Delete(request.id);
             return response;
         }
-        public async Task<object> PUT(UpdateNetwork request)
+        public object PUT(UpdateNetwork request)
         {
             var response = new BaseResponse();
-            Expression<Func<ServiceModel.Network, bool>> keySelector = x => x.id == request.id;
-            var networkUp = await _netWorkService.GetById(keySelector);
-            networkUp.nameNetwork = request.nameNetwork;
-            await _netWorkService.Update(networkUp);
+            //Expression<Func<ServiceModel.Network, bool>> keySelector = x => x.id == request.id;
+            var networkUp = new ServiceModel.Network
+            {
+                id = request.id,
+                nameNetwork = request.nameNetwork
+            };
 
-            response.Message = "Updated network successfully";
+            
+            response.Results = _netWorkService.Update(networkUp);
+            if((bool)response.Results == true)
+            {
+                response.Message = "Updated network successfully";
+            }
+            else
+            {
+                response.Message = "Updated network failed";
+            }
             return response;
         }
 

@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace BEQLDB.ServiceInterface.DAL.UnitOfWork
 {
-    public interface IUnitOfWork<T> where T : class
+    public interface IUnitOfWork
     {
-        IGenericRepository<T> GenericRepository { get; }
+       // IGenericRepository<T> GenericRepository { get; }
 
         //void BeginTransaction();
         //void Commit();
         //void Rollback();
 
-        Task Save();
+        void Save();
         /// <summary>
         /// Discards all changes that has not been commited
         /// </summary>

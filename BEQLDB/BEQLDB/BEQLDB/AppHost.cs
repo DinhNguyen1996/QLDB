@@ -26,6 +26,10 @@ namespace BEQLDB
         /// </summary>
         public override void Configure(Container container)
         {
+            //container.AddTransient<IUnitOfWork, UnitOfWork>();
+            //container.AddSingleton<IUnitOfWork, UnitOfWork>();
+            //container.AddScoped<IUnitOfWork, UnitOfWork>();
+
             var builder = new ContainerBuilder();
             // crossdomain to client  
             this.Plugins.Add(new CorsFeature(allowedOrigins: "*",
@@ -47,9 +51,10 @@ namespace BEQLDB
                 .InstancePerRequest();
 
             // register UnitofWork
-            builder.RegisterGeneric(typeof(UnitOfWork<>))
-                .As(typeof(IUnitOfWork<>))
-                .InstancePerRequest();
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
+            //builder.Register(typeof(UnitOfWork))
+            //    .As(typeof(IUnitOfWork))
+            //    .InstancePerRequest();
 
             // register Service
             builder.RegisterAssemblyTypes(typeof(IBaseService<>).Assembly)

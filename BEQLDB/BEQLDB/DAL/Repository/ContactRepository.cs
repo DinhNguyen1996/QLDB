@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BEQLDB.ServiceInterface.DAL.Repository
 {
-    public class ContactRepository : GenericRepository<Contact>, IContactRepository
+    public class ContactRepository1 : GenericRepository<Contact>, IContactRepository
     {
-        public ContactRepository(QLDBContext dbContext) : base(dbContext)
+        public ContactRepository1(QLDBContext dbContext) : base(dbContext)
         {
         }
 
