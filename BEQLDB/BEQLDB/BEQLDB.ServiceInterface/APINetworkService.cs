@@ -43,6 +43,14 @@ namespace BEQLDB.ServiceInterface
 
             response.Message = $"Get network by ID:{request.id} successfully";
             response.Results = network;
+            if (network != null)
+            {
+                response.Message = $"Get network by ID:{request.id} successfully";
+            }
+            else
+            {
+                response.Message = $"ID:{request.id} is not exist!";
+            }
             return response;
         }
 
@@ -56,8 +64,15 @@ namespace BEQLDB.ServiceInterface
             };
             var result = _netWorkService.Create(crtNetwork);
 
-            response.Message = "Created network successfully";
             response.Results = result;
+            if ((bool)response.Results == true)
+            {
+                response.Message = "Created network successfully";
+            }
+            else
+            {
+                response.Message = "Created network failed";
+            }
             return response;
         }
         public object DELETE(NetworkById request)
@@ -66,8 +81,15 @@ namespace BEQLDB.ServiceInterface
             //Expression<Func<ServiceModel.Network, bool>> keySelector = x => x.id == request.id;
             //var result = await _netWorkService.Delete(keySelector);
 
-            response.Message = "Deleted network successfully";
             response.Results = _netWorkService.Delete(request.id);
+            if ((bool)response.Results == true)
+            {
+                response.Message = "Deleted network successfully";
+            }
+            else
+            {
+                response.Message = "Deleted network failed";
+            }
             return response;
         }
         public object PUT(UpdateNetwork request)
@@ -80,9 +102,9 @@ namespace BEQLDB.ServiceInterface
                 nameNetwork = request.nameNetwork
             };
 
-            
+
             response.Results = _netWorkService.Update(networkUp);
-            if((bool)response.Results == true)
+            if ((bool)response.Results == true)
             {
                 response.Message = "Updated network successfully";
             }

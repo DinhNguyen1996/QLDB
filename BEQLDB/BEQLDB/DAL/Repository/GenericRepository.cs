@@ -37,6 +37,10 @@ namespace BEQLDB.ServiceInterface.DAL.Repository
 
         public void Delete(T entity)
         {
+            if(entity == null)
+            {
+                throw new Exception("Can not find id");
+            }
             if (_dbContext.Entry(entity).State == EntityState.Unchanged)
             {
                 _dbSet.Attach(entity);

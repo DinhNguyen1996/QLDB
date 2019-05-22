@@ -34,7 +34,7 @@ namespace BEQLDB.ServiceInterface
             //    dto.NetworkName = x.Network.nameNetwork;
             //    return dto;
             //});
-            
+
             var listContact = _contactService.GetAll();
             response.Message = "Get contact successfully";
             response.Results = listContact;
@@ -51,10 +51,17 @@ namespace BEQLDB.ServiceInterface
             //dto.NetworkName = contactByID.Network.nameNetwork;
             var contact = _contactService.GetById(request.id);
 
-            response.Message = $"Get contact by ID:{request.id} successfully";
             response.Results = contact;
+            if (contact != null)
+            {
+                response.Message = $"Get contact by ID:{request.id} successfully";
+            }
+            else
+            {
+                response.Message = $" ID:{request.id} is not exist!";
+            }
             return response;
-           
+
         }
 
         public object POST(CreateContact request)
@@ -72,8 +79,15 @@ namespace BEQLDB.ServiceInterface
             };
             var result = _contactService.Create(crtContact);
 
-            response.Message = "Created contact successfully";
             response.Results = result;
+            if ((bool)response.Results == true)
+            {
+                response.Message = "Created contact successfully";
+            }
+            else
+            {
+                response.Message = "Created contact failed";
+            }
             return response;
         }
 
@@ -91,8 +105,15 @@ namespace BEQLDB.ServiceInterface
                 NetworkId = request.NetworkId,
             };
 
-            response.Message = "Updated contact successfully";
             response.Results = _contactService.Update(contactUp);
+            if ((bool)response.Results == true)
+            {
+                response.Message = "Updated contact successfully";
+            }
+            else
+            {
+                response.Message = "Updated contact failed";
+            }
 
             return response;
         }
@@ -100,8 +121,15 @@ namespace BEQLDB.ServiceInterface
         public object DELETE(ContactById request)
         {
             var response = new BaseResponse();
-            response.Message = "Deleted contact successfully";
             response.Results = _contactService.Delete(request.id);
+            if ((bool)response.Results == true)
+            {
+                response.Message = "Deleted contact successfully";
+            }
+            else
+            {
+                response.Message = "Deleted contact failed";
+            }
             return response;
         }
 
