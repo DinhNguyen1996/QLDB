@@ -19,14 +19,19 @@ namespace BEQLDB.ServiceInterface.DAL.Repository
             this._dbSet = dbContext.Set<T>();
         }
 
-        public void Create(T entity)
+        public async Task Create(T entity)
         {
-            _dbSet.Add(entity);
+            await _dbSet.AddAsync(entity);
         }
 
-        public T GetById(object id)
+        public async Task<T> GetById(object id)
         {
-            return _dbSet.Find(id);
+            T entityGet = await _dbSet.FindAsync(id);
+            if (entityGet == null)
+            {
+                throw new Exception("Can not find id");
+            }
+            return entityGet;
         }
 
         public void Delete(object id)
@@ -37,7 +42,7 @@ namespace BEQLDB.ServiceInterface.DAL.Repository
 
         public void Delete(T entity)
         {
-            if(entity == null)
+            if (entity == null)
             {
                 throw new Exception("Can not find id");
             }
@@ -58,7 +63,7 @@ namespace BEQLDB.ServiceInterface.DAL.Repository
             _dbContext.Entry(entity).State = EntityState.Modified;
         }
 
-        public IQueryable<T> GetAll(Expression<Func<T, bool>> filter = null, 
+        public IQueryable<T> GetAll(Expression<Func<T, bool>> filter = null,
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             string includeProperties = "")
         {

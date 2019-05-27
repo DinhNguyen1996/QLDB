@@ -25,17 +25,17 @@ namespace Service.Imp
             _context = context;
         }
 
-        public bool Create(Contact contact)
+        public async Task<bool> Create(Contact contact)
         {
-            _contactRepo.Create(contact);
-            _unitOfWork.Save();
+            await _contactRepo.Create(contact);
+            await _unitOfWork.Save();
             return true;
         }
 
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             _contactRepo.Delete(id);
-            _unitOfWork.Save();
+            await _unitOfWork.Save();
             return true;
         }
 
@@ -45,9 +45,9 @@ namespace Service.Imp
             return listContact?.ToList();
         }
 
-        public Contact GetById(int id)
+        public async Task<Contact> GetById(int id)
         {
-            var contact = _contactRepo.GetById(id);
+            var contact = await _contactRepo.GetById(id);
             return contact;
         }
 
@@ -56,9 +56,9 @@ namespace Service.Imp
             throw new NotImplementedException();
         }
 
-        public bool Update(Contact contact)
+        public async Task<bool> Update(Contact contact)
         {
-            var contactUpdate = _contactRepo.GetById(contact.id);
+            var contactUpdate = await _contactRepo.GetById(contact.id);
             if (contactUpdate != null)
             {
                 contactUpdate.name = contact.name;
@@ -69,7 +69,7 @@ namespace Service.Imp
                 contactUpdate.NetworkId = contact.NetworkId;
 
                 _contactRepo.Update(contactUpdate);
-                _unitOfWork.Save();
+                await _unitOfWork.Save();
 
                 return true;
             }

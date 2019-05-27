@@ -36,11 +36,11 @@ namespace BEQLDB.ServiceInterface.DAL.UnitOfWork
             this.disposed = true;
         }
 
-        public void Save()
+        public async Task Save()
         {
             try
             {
-                dbContext.SaveChanges();
+               await dbContext.SaveChangesAsync();
             }
             catch
             {

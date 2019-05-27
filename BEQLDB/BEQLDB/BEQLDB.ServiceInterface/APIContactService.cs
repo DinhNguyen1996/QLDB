@@ -42,29 +42,23 @@ namespace BEQLDB.ServiceInterface
 
         }
 
-        public object GET(ContactById request)
+        public async Task<object> GET(ContactById request)
         {
             var response = new BaseResponse();
             //Expression<Func<ServiceModel.Contact, bool>> keySelector = x => x.id == request.id;
             //var contactByID = await _contactService.GetById(keySelector, includeProperties:"Network");
             //var dto = contactByID.ConvertTo<ContactDTO>();
             //dto.NetworkName = contactByID.Network.nameNetwork;
-            var contact = _contactService.GetById(request.id);
+            var contact = await _contactService.GetById(request.id);
 
             response.Results = contact;
-            if (contact != null)
-            {
-                response.Message = $"Get contact by ID:{request.id} successfully";
-            }
-            else
-            {
-                response.Message = $" ID:{request.id} is not exist!";
-            }
+            response.Message = $"Get contact by ID:{request.id} successfully";
+            
             return response;
 
         }
 
-        public object POST(CreateContact request)
+        public async Task<object> POST(CreateContact request)
         {
             var response = new BaseResponse();
             var crtContact = new Contact()
@@ -77,7 +71,7 @@ namespace BEQLDB.ServiceInterface
                 gender = request.gender,
                 NetworkId = request.NetworkId
             };
-            var result = _contactService.Create(crtContact);
+            var result = await _contactService.Create(crtContact);
 
             response.Results = result;
             if ((bool)response.Results == true)
@@ -91,7 +85,7 @@ namespace BEQLDB.ServiceInterface
             return response;
         }
 
-        public object PUT(UpdateContact request)
+        public async Task<object> PUT(UpdateContact request)
         {
             var response = new BaseResponse();
             var contactUp = new Contact
@@ -105,7 +99,7 @@ namespace BEQLDB.ServiceInterface
                 NetworkId = request.NetworkId,
             };
 
-            response.Results = _contactService.Update(contactUp);
+            response.Results = await _contactService.Update(contactUp);
             if ((bool)response.Results == true)
             {
                 response.Message = "Updated contact successfully";
@@ -118,10 +112,10 @@ namespace BEQLDB.ServiceInterface
             return response;
         }
 
-        public object DELETE(ContactById request)
+        public async Task<object> DELETE(ContactById request)
         {
             var response = new BaseResponse();
-            response.Results = _contactService.Delete(request.id);
+            response.Results = await _contactService.Delete(request.id);
             if ((bool)response.Results == true)
             {
                 response.Message = "Deleted contact successfully";

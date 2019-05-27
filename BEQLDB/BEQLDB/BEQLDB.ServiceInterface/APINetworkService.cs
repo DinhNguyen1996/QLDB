@@ -34,27 +34,20 @@ namespace BEQLDB.ServiceInterface
             return response;
         }
 
-        public object GET(NetworkById request)
+        public async Task<object> GET(NetworkById request)
         {
             //Expression<Func<ServiceModel.Network, bool>> keySelector = x => x.id == request.id;
             //var networkByID = await _netWorkService.GetById(keySelector: keySelector);
-            var network = _netWorkService.GetById(request.id);
+            var network = await _netWorkService.GetById(request.id);
             var response = new BaseResponse();
 
             response.Message = $"Get network by ID:{request.id} successfully";
             response.Results = network;
-            if (network != null)
-            {
-                response.Message = $"Get network by ID:{request.id} successfully";
-            }
-            else
-            {
-                response.Message = $"ID:{request.id} is not exist!";
-            }
+
             return response;
         }
 
-        public object POST(CreateNetwork request)
+        public async Task<object> POST(CreateNetwork request)
         {
             var response = new BaseResponse();
             var crtNetwork = new ServiceModel.Network()
@@ -62,7 +55,7 @@ namespace BEQLDB.ServiceInterface
                 id = request.id,
                 nameNetwork = request.nameNetwork
             };
-            var result = _netWorkService.Create(crtNetwork);
+            var result = await _netWorkService.Create(crtNetwork);
 
             response.Results = result;
             if ((bool)response.Results == true)
@@ -75,13 +68,13 @@ namespace BEQLDB.ServiceInterface
             }
             return response;
         }
-        public object DELETE(NetworkById request)
+        public async Task<object> DELETE(NetworkById request)
         {
             var response = new BaseResponse();
             //Expression<Func<ServiceModel.Network, bool>> keySelector = x => x.id == request.id;
             //var result = await _netWorkService.Delete(keySelector);
 
-            response.Results = _netWorkService.Delete(request.id);
+            response.Results = await _netWorkService.Delete(request.id);
             if ((bool)response.Results == true)
             {
                 response.Message = "Deleted network successfully";
@@ -92,7 +85,7 @@ namespace BEQLDB.ServiceInterface
             }
             return response;
         }
-        public object PUT(UpdateNetwork request)
+        public async Task<object> PUT(UpdateNetwork request)
         {
             var response = new BaseResponse();
             //Expression<Func<ServiceModel.Network, bool>> keySelector = x => x.id == request.id;
@@ -102,8 +95,7 @@ namespace BEQLDB.ServiceInterface
                 nameNetwork = request.nameNetwork
             };
 
-
-            response.Results = _netWorkService.Update(networkUp);
+            response.Results = await _netWorkService.Update(networkUp);
             if ((bool)response.Results == true)
             {
                 response.Message = "Updated network successfully";

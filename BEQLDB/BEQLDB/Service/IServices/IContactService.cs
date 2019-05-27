@@ -11,10 +11,10 @@ namespace BEQLDB.ServiceInterface.IServices
     public interface IContactService
     {
         List<Contact> GetAll();
-        Contact GetById(int id);
-        bool Create(Contact contact);
-        bool Update(Contact contact);
-        bool Delete(int id);
+        Task<Contact> GetById(int id);
+        Task<bool> Create(Contact contact);
+        Task<bool> Update(Contact contact);
+        Task<bool> Delete(int id);
         string GetPhoneNumberByName(string name);
     }
 }

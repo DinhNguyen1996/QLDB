@@ -19,8 +19,6 @@ namespace BEQLDB.ServiceModel
             modelBuilder.Entity<Network>()
                 .HasMany(c => c.Contacts)
                 .WithOne(n => n.Network);
-
-            
         }
 
         public DbSet<Network> Networks { get; set; }

@@ -22,17 +22,17 @@ namespace Service.Imp
             _networkRepo = networkRepo;
         }
 
-        public bool Create(Network network)
+        public async Task<bool> Create(Network network)
         {
-            _networkRepo.Create(network);
-            _unitOfWork.Save();
+            await _networkRepo.Create(network);
+            await _unitOfWork.Save();
             return true;
         }
 
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             _networkRepo.Delete(id);
-            _unitOfWork.Save();
+            await _unitOfWork.Save();
             return true;
         }
 
@@ -42,22 +42,22 @@ namespace Service.Imp
             return listNetwork?.ToList();
         }
 
-        public Network GetById(int id)
+        public async Task<Network> GetById(int id)
         {
-            var network = _networkRepo.GetById(id);
+            var network = await _networkRepo.GetById(id);
             return network;
         }
 
 
-        public bool Update(Network network)
+        public async Task<bool> Update(Network network)
         {
-            var networkUpdate = _networkRepo.GetById(network.id);
+            var networkUpdate = await _networkRepo.GetById(network.id);
             if (networkUpdate != null)
             {
                 networkUpdate.nameNetwork = network.nameNetwork;
 
                 _networkRepo.Update(networkUpdate);
-                _unitOfWork.Save();
+                await _unitOfWork.Save();
 
                 return true;
             }

@@ -12,10 +12,10 @@ namespace BEQLDB.ServiceInterface.DAL.Repository
         IQueryable<T> GetAll(Expression<Func<T, bool>> filter = null,
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             string includeProperties = "");
-        void Create(T entity);
+        Task Create(T entity);
         void Delete(T entity);
         void Update(T entity);
         void Delete(object id);
-        T GetById(object id);
+        Task<T> GetById(object id);
     }
 }

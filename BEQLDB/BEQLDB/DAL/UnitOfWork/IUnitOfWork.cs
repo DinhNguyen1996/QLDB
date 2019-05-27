@@ -16,7 +16,7 @@ namespace BEQLDB.ServiceInterface.DAL.UnitOfWork
         //void Commit();
         //void Rollback();
 
-        void Save();
+        Task Save();
         /// <summary>
         /// Discards all changes that has not been commited
         /// </summary>
