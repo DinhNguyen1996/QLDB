@@ -12,6 +12,7 @@ namespace BEQLDB.ServiceInterface.DAL.Repository
         IQueryable<T> GetAll(Expression<Func<T, bool>> filter = null,
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             string includeProperties = "");
+        IQueryable<T> GetPage(int PageSize, int PageIndex);
         Task Create(T entity);
         void Delete(T entity);
         void Update(T entity);

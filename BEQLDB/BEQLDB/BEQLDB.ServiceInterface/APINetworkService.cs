@@ -27,6 +27,19 @@ namespace BEQLDB.ServiceInterface
             //Expression<Func<ServiceModel.Network, bool>> filter = x => (request.nameNetwork == null || x.nameNetwork.Contains(request.nameNetwork));
             //var netWorkEntities = await _netWorkService.GetAll(filter: filter);
             var response = new BaseResponse();
+            var listNetwork = _netWorkService.GetAllWithPage(request.pageSize,request.pageIndex);
+
+            response.Message = "Get networks successfully";
+            response.Results = listNetwork;
+            response.TotalRecord = _netWorkService.Count();
+            return response;
+        }
+
+        public object GET(GetAllNetWork request)
+        {
+            //Expression<Func<ServiceModel.Network, bool>> filter = x => (request.nameNetwork == null || x.nameNetwork.Contains(request.nameNetwork));
+            //var netWorkEntities = await _netWorkService.GetAll(filter: filter);
+            var response = new BaseResponse();
             var listNetwork = _netWorkService.GetAll();
 
             response.Message = "Get networks successfully";

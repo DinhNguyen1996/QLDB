@@ -24,6 +24,14 @@ namespace BEQLDB.ServiceInterface.DAL.Repository
             await _dbSet.AddAsync(entity);
         }
 
+        public IQueryable<T> GetPage(int PageSize , int PageIndex)
+        {
+            var queryResultPage = _dbSet
+              .Skip(PageSize * (PageIndex-1))
+              .Take(PageSize);
+            return queryResultPage;
+        }
+
         public async Task<T> GetById(object id)
         {
             T entityGet = await _dbSet.FindAsync(id);

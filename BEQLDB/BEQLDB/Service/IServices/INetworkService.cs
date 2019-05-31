@@ -10,9 +10,11 @@ namespace BEQLDB.ServiceInterface.IServices
     public interface INetworkService 
     {
         List<Network> GetAll();
+        List<Network> GetAllWithPage(int pageSize, int pageIndex);
         Task<Network> GetById(int id);
         Task<bool> Create(Network network);
         Task<bool> Update(Network network);
         Task<bool> Delete(int id);
+        int Count();
     }
 }

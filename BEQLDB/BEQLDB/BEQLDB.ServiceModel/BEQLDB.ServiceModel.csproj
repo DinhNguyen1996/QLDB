@@ -125,6 +125,7 @@
     <Compile Include="DTOs\ContactDTO.cs" />
     <Compile Include="Hello.cs" />
     <Compile Include="Network.cs" />
+    <Compile Include="PageReq.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QLDBContext.cs" />
   </ItemGroup>

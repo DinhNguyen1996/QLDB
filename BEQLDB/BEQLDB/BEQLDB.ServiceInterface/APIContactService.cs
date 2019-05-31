@@ -35,9 +35,10 @@ namespace BEQLDB.ServiceInterface
             //    return dto;
             //});
 
-            var listContact = _contactService.GetAll();
+            var listContact = _contactService.GetAllWithPage(request.pageSize, request.pageIndex);
             response.Message = "Get contact successfully";
             response.Results = listContact;
+            response.TotalRecord = _contactService.Count();
             return response;
 
         }

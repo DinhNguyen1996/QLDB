@@ -39,9 +39,20 @@ namespace Service.Imp
             return true;
         }
 
-        public List<Contact> GetAll()
+        //public List<Contact> GetAll()
+        //{
+        //    var listContact = _contactRepo.GetAll();
+        //    return listContact?.ToList();
+        //}
+
+        public int Count()
         {
-            var listContact = _contactRepo.GetAll();
+            return _contactRepo.GetAll().Count();
+        }
+
+        public List<Contact> GetAllWithPage(int pageSize, int pageIndex)
+        {
+            var listContact = _contactRepo.GetPage(pageSize, pageIndex);
             return listContact?.ToList();
         }
 

@@ -22,8 +22,8 @@ namespace BEQLDB.ServiceModel
         public virtual Network Network { get; set; }
     }
 
-    [Route("/contacts","GET")]
-    public class GetALLContact : IReturn<BaseResponse>
+    [Route("/contacts/{pageSize}/{pageIndex}", "GET")]
+    public class GetALLContact : PageReq,IReturn<BaseResponse>
     {
         public int id { get; set; }
         public string name { get; set; }
@@ -32,6 +32,7 @@ namespace BEQLDB.ServiceModel
         public bool myFavourite { get; set; }
         public bool gender { get; set; }
         public int NetworkId { get; set; }
+
     }
 
     [Route("/contacts", "POST")]

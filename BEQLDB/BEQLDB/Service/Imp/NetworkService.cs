@@ -22,6 +22,11 @@ namespace Service.Imp
             _networkRepo = networkRepo;
         }
 
+        public int Count()
+        {
+            return _networkRepo.GetAll().Count();
+        }
+
         public async Task<bool> Create(Network network)
         {
             await _networkRepo.Create(network);
@@ -39,6 +44,12 @@ namespace Service.Imp
         public List<Network> GetAll()
         {
             var listNetwork = _networkRepo.GetAll();
+            return listNetwork?.ToList();
+        }
+
+        public List<Network> GetAllWithPage(int pageSize, int pageIndex)
+        {
+            var listNetwork = _networkRepo.GetPage(pageSize, pageIndex);
             return listNetwork?.ToList();
         }
 

@@ -10,5 +10,6 @@ namespace BEQLDB.ServiceModel
     {
         public string Message { get; set; }
         public object Results { get; set; } = null;
+        public int TotalRecord { get; set; }
     }
 }
